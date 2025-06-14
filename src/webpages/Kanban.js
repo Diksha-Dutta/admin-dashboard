@@ -32,6 +32,7 @@ export default function Kanban() {
     inProgress: '',
     done: '',
   });
+  const [editTask, setEditTask] = useState(null);
 
   const inputRefs = {
     todo: useRef(null),
@@ -79,6 +80,30 @@ export default function Kanban() {
     inputRefs[col].current?.focus();
   };
 
+  const handleDeleteTask = (col, id) => {
+    setTasks(prev => ({
+      ...prev,
+      [col]: prev[col].filter(task => task.id !== id),
+    }));
+  };
+
+  const handleStartEdit = (task, col) => {
+    setEditTask({ ...task, col });
+  };
+
+  const handleEditChange = (e) => {
+    setEditTask(prev => ({ ...prev, content: e.target.value }));
+  };
+
+  const handleSaveEdit = () => {
+    const { col, id, content } = editTask;
+    setTasks(prev => ({
+      ...prev,
+      [col]: prev[col].map(task => task.id === id ? { ...task, content } : task),
+    }));
+    setEditTask(null);
+  };
+
   const handleKeyPress = (e, col) => {
     if (e.key === 'Enter') handleAddTask(col);
   };
@@ -109,9 +134,21 @@ export default function Kanban() {
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className="bg-white dark:bg-gray-800 text-black dark:text-white p-2 mb-2 rounded shadow hover:shadow-md transition duration-200"
+                            className="bg-white dark:bg-gray-800 text-black dark:text-white p-2 mb-2 rounded shadow hover:shadow-md transition duration-200 flex justify-between items-center"
                           >
-                            {task.content}
+                            {editTask && editTask.id === task.id ? (
+                              <input
+                                className="flex-1 mr-2 px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 rounded"
+                                value={editTask.content}
+                                onChange={handleEditChange}
+                                onBlur={handleSaveEdit}
+                                onKeyDown={(e) => e.key === 'Enter' && handleSaveEdit()}
+                                autoFocus
+                              />
+                            ) : (
+                              <span onDoubleClick={() => handleStartEdit(task, col)}>{task.content}</span>
+                            )}
+                            <button onClick={() => handleDeleteTask(col, task.id)} className="text-red-500 text-sm ml-2">✖</button>
                           </div>
                         )}
                       </Draggable>
