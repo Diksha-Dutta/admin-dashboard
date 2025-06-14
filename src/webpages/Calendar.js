@@ -7,9 +7,9 @@ import { format } from 'date-fns';
 
 export default function CalendarPage() {
   const [events, setEvents] = useState([
-    { title: '🌱 Project Kickoff', date: '2025-06-16', description: 'Initial team sync-up' },
-    { title: '🎨 UI Review', date: '2025-06-18', description: 'Final design review' },
-    { title: '🚀 Launch Day', date: '2025-06-20', description: 'Go live!' },
+    { title: 'Project Kickoff', date: '2025-06-16', description: 'Initial team sync-up' },
+    { title: 'UI Review', date: '2025-06-18', description: 'Final design review' },
+    { title: 'Launch Day', date: '2025-06-20', description: 'Go live!' },
   ]);
 
   const handleDateClick = (info) => {
