@@ -6,9 +6,9 @@ import {
 } from '@hello-pangea/dnd';
 
 const initialTasks = {
-  todo: [{ id: '1', content: '🎯 Design wireframes' }],
-  inProgress: [{ id: '2', content: '⚙️ Develop login page' }],
-  done: [{ id: '3', content: '🎨 Setup Tailwind' }],
+  todo: [{ id: '1', content: 'Design wireframes' }],
+  inProgress: [{ id: '2', content: 'Develop login page' }],
+  done: [{ id: '3', content: 'Setup Tailwind' }],
 };
 
 let taskIdCounter = 4;
