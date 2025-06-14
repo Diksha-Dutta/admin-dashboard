@@ -11,7 +11,7 @@ export default function Navbar({ title = "Dashboard" }) {
       <div className="flex items-center gap-4">
         <ThemeToggle />
         <div className="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600" title="User">
-          {/* Placeholder for user avatar */}
+          
         </div>
       </div>
     </header>

@@ -2,16 +2,20 @@
   "name": "admin-dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Diksha-Dutta.github.io/admin-dashboard-app",
   "dependencies": {
     "@fullcalendar/common": "^5.11.5",
     "@fullcalendar/daygrid": "^6.1.17",
+    "@fullcalendar/interaction": "^6.1.17",
     "@fullcalendar/react": "^6.1.17",
+    "@fullcalendar/timegrid": "^6.1.17",
     "@hello-pangea/dnd": "^18.0.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "chart.js": "^4.4.9",
+    "date-fns": "^4.1.0",
     "react": "^19.1.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.1.0",
@@ -23,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

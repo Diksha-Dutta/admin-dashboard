@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { Navigate } from 'react-router-dom';
 import Dashboard from './webpages/Dashboard';
 import Calendar from './webpages/Calendar';
 import Kanban from './webpages/Kanban';
@@ -18,14 +18,13 @@ function App() {
           <Navbar title="Admin Dashboard" />
           <main className="flex-1 overflow-y-auto p-6">
             
-          
-
+     
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/kanban" element={<Kanban />} />
               <Route path="/table" element={<Table/>} />
-
+               <Route path="*" element={<Navigate to="/" replace />} />
               
             </Routes>
           </main>
