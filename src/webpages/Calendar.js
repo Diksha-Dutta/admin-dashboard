@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction'; // for selectable, click, etc.
+import interactionPlugin from '@fullcalendar/interaction'; 
 import { format } from 'date-fns';
 
 export default function CalendarPage() {
